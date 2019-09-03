@@ -1,12 +1,13 @@
 <html>
 <head>
 <title> New template</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <style>
 .menu{
        list-style:none;
@@ -17,15 +18,16 @@
 .name{
        border-bottom:1px solid black;
 }
-    .email{float:left;margin-left:10%;font-size:300px; color:white;}  
+    .email{text:center;font-size:200px; color:white;}
+    .error{color:red !important;}  
     </style>
     </head>
 <body class="bg-primary">
 <div class="row w-100 bg-dark h-15 m-0">
-	 <div class="col-md-2">
+	 <div class="col-md-2">&nbsp;
 	 </div>
 	 <div class="col-md-2">
-		    <h1 class="navbar text-info font-weight-bold "> LOGIN </h1>
+      <h1 class="text-white font-weight-bold mt-2">LOGO</h1>
 	 </div>
 	 <div class="col-md-2 ">
 	 </div>
@@ -37,47 +39,85 @@
 	            <li> <a href="#">ACCOUNT </a></li>
 	        </ul>
 	 </div>
-	 <div class="col-md-2 ">
+	 <div class="col-md-2" >&nbsp;
      </div>
 	 </div>
 <div class="row mt-5 m-0">
 	   <div class="col-md-2">&nbsp;
 	   </div>
-	   <div class="col-md-4">
-	           <div class="col-sm-12  p-3">
-	                <h2 class="text-white text-weight-bold"> Welcome to my login to sport center and downlode books</h2>
-	           </div>
-	           <div class="col-sm-12  p-3">
-	               <p> <a href="#" class="text-white">Visit Here</a> this site to access hundreds of free nonfiction books. A wide range of topics are available.This library offers readers free online access to a selection of literary classics.</p>
-	           </div>
-	           <div class="col-sm-12  p-3">
-	                     <h3 class="text-white text-weight-bold"> In a hurry? Email us <h3>
-                </div>
-	         <div class="col-md-12">
-                     <i class="fa fa-envelope email"></i>      
-            </div>
-	   </div>
-	   <div class="col-md-4  bg-white rounded">
-	   <form>
+       <div class="col-md-8  bg-white rounded my-5">
+	     <form action="javascript:void(0);" id="registerFrom">
            <h2 class="text-center mt-2 font-weight-bold">SIGN UP</h2>
            <h3 class="mt-3 w-100">First name</h3>
-           <input type="text" class="form-control mt-3" name="first_name" placeholder="firstname...."/>
+           <input type="text" class="form-control mt-3" name="first_name" id="firstname" placeholder="firstname...."/>
+           <p id="username"></p>
            <h3 class="mt-3 w-100">Last name</h3>
-           <input  type="text" class="form-control mt-3" name="first_name" placeholder="lastname...."/>
+           <input  type="text" class="form-control mt-3" name="last_name" placeholder="lastname...."/>
            <h3 class="mt-3 w-100">Email</h3>
            <input type="email" class="form-control mt-3" name="email" placeholder="email...."/>
            <h3 class="mt-3 w-100">Password</h3>
-           <input  type="password" class="form-control mt-3" name="password" placeholder="password...."/>
+           <input  type="password" class="form-control mt-3" name="password" id="password" placeholder="password...."/>
            <h3 class="mt-3 w-100">Confirm-password</h3>
            <input  type="password" class="form-control mt-3" name="conform_password" placeholder="confirmpassword...."/>
-          <label class="w-100"><input type="checkbox" name="optradio" class="mt-3 ">    &nbsp;<a href="#" class="font-weight-bold">Term&conditions</a></label>
-           <button class="btn btn-success btn-xl pl-5 pr-5 mt-3 my-3" id="button">Submit</button>
-           </form>
+             <h3 class="mt-3 w-100">Select State</h3>
+            <select class="form-control" id="selstate" name="select_state">
+				<option>State</option>
+                <option>Punjab</option>
+                <option>Chandighar</option>
+                <option>Delhi</option>
+                <option>Haryana</option>
+            </select>
+            <h3 class="mt-3 w-100">Select city</h3>
+            <select class="form-control" id="selcity" name="select_city">
+                <option>City</option>
+                <option>Amritsar</option>
+                <option>Sector-17</option>
+                <option>Nand-Nagri</option>
+                <option>Hisar</option>
+            </select>
+           <label class="w-100"><input type="checkbox" id="chekbox" class="mt-3 ">    &nbsp;<a href="#" class="font-weight-bold">Term&conditions</a></label>
+           <button class="btn btn-success  pl-5 pr-5 mt-3 my-3" id="button">Submit</button>
+         </form>
 	   </div>
 	   <div class="col-md-2 ">&nbsp;
 	   </div>
-</div>
-</div>                   
+	   </div>
+</div>  
+	   <script>
+	$(function(){
+		   $('#registerFrom').validate({
+			   rules:{
+				  first_name :  {required:true}, 
+				  last_name :   {required:true},
+				  email     :   {
+					  required:true,
+					  email:true 
+				  },
+				  password   :{required:true},
+				  conform_password  :{  
+					  required:true,
+					  equalTo: "#password"   
+					},
+			     select_state : { required:true },				
+			     select_city : { required:true },				
+			  },
+			  messages :	{
+				    first_name :{required:"please fill first name"}, 
+				  last_name :{required:"please fill last name"},
+				  email     :{required:"please fill email"},
+				  password   :{required:"please fill password"},
+				  conform_password  :{required:"please fill confirm password",
+					                 equalTo :"password does not match"
+				  },
+				 select_state : { required: "please select state name" },				
+			     select_city : { required:  "please select city name" },	
+				  },   
+			   });
+		   });
+		   
+
+</script>
+                 
 </body>
 </html>	 
 	 
