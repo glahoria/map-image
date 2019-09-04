@@ -49,17 +49,20 @@
 	     <form action="javascript:void(0);" id="registerFrom">
            <h2 class="text-center mt-2 font-weight-bold">SIGN UP</h2>
            <h3 class="mt-3 w-100">First name</h3>
-           <input type="text" class="form-control mt-3" name="first_name" id="firstname" placeholder="firstname...."/>
-           <label class="error" id="firstNameError">xzvxvc</label>
-           <p id="username"></p>
+           <input type="text" class="form-control mt-3" name="first_name" id="FirstName" placeholder="firstname...."/>
+           <label class="error" id="firstNameError"></label>
            <h3 class="mt-3 w-100">Last name</h3>
-           <input  type="text" class="form-control mt-3" name="last_name" placeholder="lastname...."/>
+           <input  type="text" class="form-control mt-3" name="last_name" id="LastName" placeholder="lastname...."/>
+            <label class="error" id="lastNameError"></label>
            <h3 class="mt-3 w-100">Email</h3>
-           <input type="email" class="form-control mt-3" name="email" placeholder="email...."/>
+           <input type="email" class="form-control mt-3"  id="email"  name="email" placeholder="email...."/>
+            <label class="error" id="emailError"></label>
            <h3 class="mt-3 w-100">Password</h3>
            <input  type="password" class="form-control mt-3" name="password" id="password" placeholder="password...."/>
+            <label class="error" id="passwordError"></label>
            <h3 class="mt-3 w-100">Confirm-password</h3>
-           <input  type="password" class="form-control mt-3" name="conform_password" placeholder="confirmpassword...."/>
+           <input  type="password" class="form-control mt-3" name="confirm_password" id="ConfirmPassword" placeholder="confirmpassword...."/>
+            <label class="error" id="confpasswordError"></label>
              <h3 class="mt-3 w-100">Select State</h3>
             <select class="form-control" id="selstate" name="select_state">
 				<option value="">State</option>
@@ -68,6 +71,7 @@
                 <option value="Delhi">Delhi</option>
                 <option value="Haryana">Haryana</option>
             </select>
+             <label class="error" id="stateError"></label>
             <h3 class="mt-3 w-100">Select city</h3>
             <select class="form-control" id="selcity" name="select_city">
                 <option>City</option>
@@ -76,6 +80,7 @@
                 <option>Nand-Nagri</option>
                 <option>Hisar</option>
             </select>
+             <label class="error" id="cityError"></label>
            <label class="w-100"><input type="checkbox" id="chekbox" class="mt-3 ">    &nbsp;<a href="#" class="font-weight-bold">Term&conditions</a></label>
            <button class="btn btn-success  pl-5 pr-5 mt-3 my-3" id="button">Submit</button>
          </form>
@@ -118,24 +123,70 @@
 			   $('#registerFrom').submit(function(e){
 				   e.preventDefault();
 				   var error = false;
-				   if($('#firstname').val().length <= 0){
+				   if($('#FirstName').val().length <= 0){
 					   error = true;
-					   console.log('here');
 					   $('#firstNameError').html("Please enter first name.");
 					} else {
 						$('#firstNameError').html("");
 					}
 					
-					if(!error){
-						 alert('Valid');
+                 });
+				 $('#registerFrom').submit(function(e){
+				   e.preventDefault();
+				   var error = false;
+			     if($('#LastName').val().length <= 0){
+					   error = true;
+					   $('#lastNameError').html("Please enter last name.");
+					} else {
+						$('#lastNameError').html("");
 					}
-				   
+					
+                });
+	         $('#registerFrom').submit(function(e){
+				 e.preventDefault();
+				 var  error = false;
+				//  var emailreg = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				 if ($('#email').val().length <= 0){
+					 error = true;
+					 $('#emailError').html("please fill email address.");
+				 }	 
+				 // else if(!emailreg.test('#email') ){
+				//	 $('#emailError').html("please fill symbol uppercase and numaric value."); }
+					 else {
+						$('#emailError').html("");
+					}
 				});
-			   
-			   
-		   });
-		   
-		   
+				 $('#registerFrom').submit(function(e){
+				   e.preventDefault();
+				   var error = false;
+			       if( $('#password').val().length <= 0 ){
+					   error = true;
+					   console.log("here")
+					   $('#passwordError').html("Please fill password.");
+					}
+					 /*else if( ($('#password').val().length < 5) || ($('#password').val().length > 10) ) {
+						    $('#passwordError').html(" please enter password 5 to 10 element");
+						}*/
+					else {
+						$('#passwordError').html("");
+					}   
+                }); 
+                $('#registerFrom').submit(function(e){
+					e.preventDefault();
+					var error = false;
+					var Psword = $('#password').val();
+					var Cpsword = $('#ConfirmPassword').val();
+					 if( Cpsword == "" ){
+						 error = true;
+						 $('#confpasswordError').html("Please fill re-Enter password ");
+						}
+				   else if (Cpsword != Psword){
+					     $('#confpasswordError').html("confirm password does not match");
+				     }else {
+						$('#passwordError').html("");
+					   }
+					});	
+		  }); 		
 </script>
                  
 </body>
