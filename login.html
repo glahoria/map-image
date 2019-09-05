@@ -132,8 +132,10 @@
 			   
 			   $('#registerFrom').submit(function(e){
 				   e.preventDefault();
-				   var result = $('input[type="checkbox"]:checked');
 				   var error = false;
+				   var result = $('input[type="checkbox"]:checked');
+				   var PassWord = $('#password').val();
+				   var confirmPassword = $('#confirmPassword').val();
 				   if($('#firstName').val().length <= 0){
 					   error = true;
 					   $('#firstNameError').html("Please enter first name.");
@@ -167,15 +169,16 @@
 					} else {
 						$('#passwordError').html("");
 					}               
-                    if( $('#confirmPassword').val().length <= 0 ){
-						error = true;
-						$('#confirmPasswordError').html("Please enter password. ");
-					} else if ( '#confirmPassword' !== '#password'){
-				     	    error = true;
-					        $('#confirmPasswordError').html("password does not match.");
-				        }else {
-						    $('#confirmPasswordError').html("");
-					    }   
+					 if( confirmPassword.length <= 0  ){
+						 error = true;
+						 $('#confirmPasswordError').html("Please enter password ");
+						}
+				   else if (confirmPassword != PassWord){
+				   	      error = true;
+					     $('#confirmPasswordError').html(" password does not match");
+				     }else {
+						$('#confirmPasswordError').html("");
+					   } 
                     if ($('#selectState').val().length <= 0) {
                     	error = true;
                     	$('#stateError').html("please select slate. ");
