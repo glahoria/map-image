@@ -91,7 +91,8 @@
                     <option value="Female">Female</option>
                 </select>
                 <label class="error" id="genderError"></label>
-                <label class="w-100"><input type="checkbox" id="chekbox" class="mt-3 ">    &nbsp;<a href="#" class="font-weight-bold">Term&conditions</a></label>
+                <label class="w-100"><input type="checkbox" id="chekbox" class="mt-3 " value="tik">    &nbsp;<a href="#" class="font-weight-bold">Term&conditions</a></label>
+                 <label class="error w-100" id="conditionError"></label>
                 <button class="btn btn-success  pl-5 pr-5 mt-3 my-3" id="button">Submit</button>
             </form>
 	   </div>
@@ -131,6 +132,7 @@
 			   
 			   $('#registerFrom').submit(function(e){
 				   e.preventDefault();
+				   var result = $('input[type="checkbox"]:checked');
 				   var error = false;
 				   if($('#firstName').val().length <= 0){
 					   error = true;
@@ -138,21 +140,18 @@
 					} else {
 						$('#firstNameError').html("");
 					}
-				   var error = false;
 			       if($('#lastName').val().length <= 0){
 					   error = true;
 					   $('#lastNameError').html("Please enter last name.");
 					} else {
 						$('#lastNameError').html("");
 					}   
-				   var  error = false;
 				   if ($('#email').val().length <= 0){
 					   error = true;
 					   $('#emailError').html("Please enter email.");
 				    } else {
 						$('#emailError').html("");
 					} 
-					var error = false;
 					if ($('#phone').val().length <= 0) {
 						error = true;
 						$('#phoneError').html("please enter phone number");
@@ -162,14 +161,12 @@
 					} else{
                         $('#phoneError').html("");
 				    }     
-					var error = false;
 			        if( $('#password').val().length <= 0 ){
 					   error = true;
 					   $('#passwordError').html("Please enter password.");
 					} else {
 						$('#passwordError').html("");
-					}       
-					var error = false;        
+					}               
                     if( $('#confirmPassword').val().length <= 0 ){
 						error = true;
 						$('#confirmPasswordError').html("Please enter password. ");
@@ -179,30 +176,30 @@
 				        }else {
 						    $('#confirmPasswordError').html("");
 					    }   
-                    var error = false;
                     if ($('#selectState').val().length <= 0) {
                     	error = true;
                     	$('#stateError').html("please select slate. ");
                     }else{
                         $('#stateError').html("");
                     }    
-                    var error = false;
                     if ($('#selectCity').val().length <= 0) {
                     	error = true;
                     	$('#cityError').html("please select city. ");
                     }else{
                         $('#cityError').html("");
                     }    
-                    var error = false;
                     if ($('#selectGender').val().length <= 0) {
                     	error = true;
                     	$('#genderError').html("please select gender.");
                     }else{
                     	$('#genderError').html("");
                     } 
-                    if (!error){
-						alert("valid");
-					}    
+                    if (result.length <= 0) {
+                    	error = true;
+                    	$('#conditionError').html("please select aggree.");
+                    }else{
+                    	$('#conditionError').html("");
+                    }  
 				});
 
         }); 		
